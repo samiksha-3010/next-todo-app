@@ -14,7 +14,8 @@ export default function Home() {
     let todos = localStorage.getItem("todos")
     if (todos){
       let todosJson = JSON.parse(todos)
-      if(todosJson.filter(value=>{ return value.title==todo.title}).length > 0){
+
+      if(todosJson.filter((value:any)=>{ return value.title == todo.title}).length > 0){
         alert("Todo with this title already exists")
       }
       else{ 
@@ -29,7 +30,7 @@ export default function Home() {
     }
    }
 
-   const onChange = (e) => { 
+   const onChange = (e:any) => { 
 
       setTodo({...todo, [e.target.name]: e.target.value})
       console.log(todo)
@@ -51,10 +52,11 @@ export default function Home() {
             </div>
             
             <button onClick={addTodo} className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none w-fit hover:bg-indigo-600 rounded text-lg">Add Todo</button>
-            <p className="text-xs text-gray-500 mt-3">Literally you probably haven't heard of them jean shorts.</p>
+            <p className="text-xs text-gray-500 mt-3">Literally you probably  heard of them jean shorts.</p>
           </div>
         </div>
       </section>
     </div>
   )
 }
+
